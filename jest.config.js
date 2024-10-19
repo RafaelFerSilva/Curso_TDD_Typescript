@@ -1,26 +1,10 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
-/** @type {import('jest').Config} */
-const config = {
-  roots: ['<rootDir>/test'],
+module.exports = {
+  roots: ['<rootDir>/src'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!**/spec/**'],
   coverageDirectory: 'coverage',
-  collectCoverageFrom: [
-    '<rootDir>/src/**/*.ts>',
-    '!**/test/**',
-    '!**/config/**'
-  ],
-  preset: '@shelf/jest-mongodb',
+  coverageProvider: 'v8',
+  testEnvironment: 'node',
   transform: {
     '.+\\.ts$': 'ts-jest'
-  },
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
-    '^@test/(.*)$': '<rootDir>/test/$1'
-  },
-  setupFiles: ['dotenv/config']
+  }
 }
-
-export default config
