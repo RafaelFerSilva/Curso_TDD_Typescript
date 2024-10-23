@@ -3,10 +3,8 @@ import { Dollar } from "./dollar"
 describe('Dollar', () => {
   it('should return 10 when five dollar are multiplied by two', async () => {
     const five: Dollar = new Dollar(5)
-    let products: Dollar = five.times(2)
-    expect(products.amount).toEqual(10)
-    products = five.times(3)
-    expect(products.amount).toEqual(15)
+    expect(five.times(2).equals(new Dollar(10))).toBeTruthy()
+    expect(five.times(3).equals(new Dollar(15))).toBeTruthy()
   })
 
   it('should return true when dollars are the same value are compared', async () => {
